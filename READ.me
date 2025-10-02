@@ -1,0 +1,10 @@
+# 1. Install dependencies
+composer install
+
+# 2. Setup environment and generate key
+cp .env.example .env && php artisan key:generate && php artisan storage:link
+
+# 3. Configure database in .env, then run migrations
+php artisan migrate && php artisan db:seed
+Then start the server:
+bashphp artisan serve
