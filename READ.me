@@ -1,10 +1,62 @@
-# 1. Install dependencies
-composer install
+Title: Product Inventory Management
 
-# 2. Setup environment and generate key
-cp .env.example .env && php artisan key:generate && php artisan storage:link
+Laravel application for managing product inventory with AJAX form submission.
 
-# 3. Configure database in .env, then run migrations
-php artisan migrate && php artisan db:seed
-Then start the server:
-bashphp artisan serve
+
+ Requirements Completed
+
+- Form with Product name, Quantity in stock, Price per item
+- Data saved to JSON file (storage/app/public/products.json)
+- Table showing all products ordered by submission date
+- Total value calculation (quantity * price)
+- Grand total row
+- AJAX form submission (no page reload)
+- Bootstrap styling
+- Edit functionality (extra credit)
+
+
+ SETUP
+
+bash
+Install dependencies
+-composer install
+
+ Setup environment
+cp .env.example .env
+php artisan key:generate
+php artisan storage:link
+
+ Configure database in .env.exampple then run:
+php artisan migrate
+php artisan db:seed
+
+Start server
+php artisan serve
+
+
+Visit http://localhost:8000
+
+
+Features
+
+1.Add Products: Fill the form and submit. Table updates automatically via AJAX.
+
+2.Edit Products: Click Edit button on any row, modify values, click Update.
+
+3.Delete Products: Click Delete button with confirmation.
+
+4.JSON Export: Products automatically saved to storage/app/public/products.json after each operation.
+
+
+
+DATABASE
+
+Products table includes:
+- product_name (string)
+- quantity_in_stock (integer)
+- price_per_item (decimal)
+- timestamps
+
+Notes
+
+The total value is calculated as quantity * price and displayed in the table. Grand total shows the sum of all product values. All operations use AJAX so the page doesn't reload.
